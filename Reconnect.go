@@ -86,10 +86,11 @@ func checkErr(err error) {
 }
 
 func NetWorkStatus() bool {
-	cmd := exec.Command("ping", "www.baidu.com" )
+	cmd := exec.Command("/bin/bash","ping", "www.baidu.com" )
 	fmt.Println("正在检测网络状态", time.Now().Unix())
-	err := cmd.Run()
+	err := cmd.Start();
 	fmt.Println("检测网络状态完成 :", time.Now().Unix())
+
 	if err != nil {
 
 		fmt.Println(err)
